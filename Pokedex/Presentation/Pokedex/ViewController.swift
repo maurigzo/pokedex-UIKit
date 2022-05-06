@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(.init(nibName: "PokedexTableViewCell", bundle: nil), forCellReuseIdentifier: "i")
     }
 }
 
@@ -34,7 +35,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "i") as? PokedexTableViewCell {
+            return cell
+        }
+        return UITableViewCell()
     }
     
     

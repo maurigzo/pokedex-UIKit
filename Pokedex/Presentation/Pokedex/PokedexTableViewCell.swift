@@ -7,8 +7,11 @@
 
 import UIKit
 
-class PokedexTableViewCell: UITableViewCell {
-
+final class PokedexTableViewCell: UITableViewCell {
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var numberLabel: UILabel!
+    @IBOutlet private weak var pokemonImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +21,14 @@ class PokedexTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func drawPokemon(_ pokemon: Pokemon) {
+        
+        nameLabel.text = pokemon.name
+        numberLabel.text = String(pokemon.number)
+        pokemonImageView.image = pokemon.image
+        
     }
     
 }

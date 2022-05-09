@@ -39,6 +39,10 @@ extension ViewController: UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 private extension ViewController {
@@ -46,6 +50,7 @@ private extension ViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PokedexTableViewCell", bundle: nil), forCellReuseIdentifier: "i")
+        tableView.estimatedRowHeight = 2.0
     }
 
     func loadJson(filename fileName: String) -> [Pokemon]? {

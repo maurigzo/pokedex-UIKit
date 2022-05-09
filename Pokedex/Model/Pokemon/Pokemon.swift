@@ -7,9 +7,6 @@
 
 import UIKit
 
-struct Pokemon {
-    
+struct Pokemon: Codable {
     let name: String
-    let number: Int
-    let image: UIImage
 }

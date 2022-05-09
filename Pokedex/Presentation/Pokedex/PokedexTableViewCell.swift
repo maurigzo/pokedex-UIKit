@@ -12,23 +12,7 @@ final class PokedexTableViewCell: UITableViewCell {
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var pokemonImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func drawPokemon(_ pokemon: Pokemon) {
-        
-        nameLabel.text = pokemon.name
-        numberLabel.text = String(pokemon.number)
-        pokemonImageView.image = pokemon.image
-        
+        nameLabel.text = pokemon.name.capitalized
     }
-    
 }

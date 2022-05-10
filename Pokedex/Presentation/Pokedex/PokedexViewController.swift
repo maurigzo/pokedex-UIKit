@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokedexViewController.swift
 //  Pokedex
 //
 //  Created by Mauri on 06/05/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class PokedexViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     private let pokedexRequest = PokedexRequest()
     
@@ -20,9 +20,9 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {}
+extension PokedexViewController: UITableViewDelegate {}
 
-extension ViewController: UITableViewDataSource {
+extension PokedexViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -46,7 +46,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-private extension ViewController {
+private extension PokedexViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self

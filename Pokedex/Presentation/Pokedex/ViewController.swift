@@ -9,13 +9,14 @@ import UIKit
 
 final class ViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    private let pokedexRequest = PokedexRequest()
     
     var pokemons: [Pokemon]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pokemons = loadJson(filename: "PokedexResponse")
         setupTableView()
+        loadPokemons()
     }
 }
 
@@ -33,7 +34,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "i") as? PokedexTableViewCell {
             if let pokemons = pokemons {
-                cell.drawPokemon(pokemons[indexPath.row])
+                cell.displayPokemon(pokemons[indexPath.row])
             }
             return cell
         }
@@ -53,17 +54,15 @@ private extension ViewController {
         tableView.estimatedRowHeight = 2.0
     }
 
-    func loadJson(filename fileName: String) -> [Pokemon]? {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(PokedexModel.self, from: data)
-                return jsonData.pokemons
-            } catch {
-                print("error: \(error)")
+    func loadPokemons() {
+        pokedexRequest.execute { result in
+            switch result {
+            case .failure(let error):
+                print("Error: \(error)")
+            case .success(let model):
+                self.pokemons = model.pokemons
+                self.tableView.reloadData()
             }
         }
-        return nil
     }
 }

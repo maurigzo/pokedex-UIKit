@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "networking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mdb1/Networking.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "7c3da6888f265e2b71ea6849a7e2f9d44f68dc48"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -11,15 +11,14 @@ final class PokedexTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var pokemonImageView: UIImageView!
+    private var pokemonExpandedRequest: PokemonExpandedRequest?
+    private var pokemonExpanded: PokemonExpanded?
     
-    func drawPokemon(_ pokemon: Pokemon) {
+    func displayPokemon(_ pokemon: Pokemon) {
         nameLabel.text = pokemon.name.capitalized
         
-        if let pokemonExpanded = loadJson(filename: "BulbasaurResponse"),
-           let artworkURL = getOfficialPokemonArtwork(pokemonExpanded),
-           let artworkImage = convertURLToUIImage(artwork: artworkURL) {
-            pokemonImageView.image = artworkImage
-        }
+        pokemonExpandedRequest = PokemonExpandedRequest(url: pokemon.url)
+        loadPokemon()
     }
     
     override func prepareForReuse() {
@@ -44,18 +43,35 @@ private extension PokedexTableViewCell {
     }
     
     func getOfficialPokemonArtwork(_ pokemonExpanded: PokemonExpanded) -> URL? {
-        
         return pokemonExpanded.sprites.otherSprites.officialArtwork.frontArtwork
-        
     }
     
     func convertURLToUIImage(artwork url: URL) -> UIImage? {
-        
         if let data = try? Data(contentsOf: url) {
             return UIImage(data: data)
         }
-        
         return nil
-        
+    }
+    
+    func loadPokemon() {
+        if let pokemonExpandedRequest = pokemonExpandedRequest {
+            pokemonExpandedRequest.execute { result in
+                switch result {
+                case .failure(let error):
+                    print("Error: \(error)")
+                case .success(let model):
+                    self.pokemonExpanded = model
+                    self.drawPokemonImage()
+                }
+            }
+        }
+    }
+    
+    func drawPokemonImage() {
+        if let pokemonExpanded = pokemonExpanded,
+           let artworkURL = getOfficialPokemonArtwork(pokemonExpanded),
+           let artworkImage = convertURLToUIImage(artwork: artworkURL) {
+            pokemonImageView.image = artworkImage
+        }
     }
 }

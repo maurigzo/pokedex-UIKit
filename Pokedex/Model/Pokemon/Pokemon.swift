@@ -9,5 +9,5 @@ import UIKit
 
 struct Pokemon: Codable {
     let name: String
-//    let url: URL
+    let url: URL
 }

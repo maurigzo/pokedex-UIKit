@@ -9,12 +9,17 @@ import UIKit
 
 final class PokedexViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var loadingImage: UIImageView!
     private let pokedexRequest = PokedexRequest()
+    private let pokedexController = PokedexController()
     
-    var pokemons: [Pokemon]? = []
+    var pokemonsExpanded: [PokemonExpanded] = []
+    var pokemonArtworks: [URL: UIImage] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pokedexController.delegate = self
         setupTableView()
         loadPokemons()
     }
@@ -28,14 +33,14 @@ extension PokedexViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        pokemons?.count ?? 0
+        pokemonsExpanded.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "i") as? PokedexTableViewCell {
-            if let pokemons = pokemons {
-                cell.displayPokemon(pokemons[indexPath.row])
-            }
+            let pokemon = pokemonsExpanded[indexPath.row]
+            let imageURL = pokemon.sprites.otherSprites.officialArtwork.frontArtwork
+            cell.displayPokemon(name: pokemon.name, image: pokemonArtworks[imageURL])
             return cell
         }
         return UITableViewCell()
@@ -60,9 +65,17 @@ private extension PokedexViewController {
             case .failure(let error):
                 print("Error: \(error)")
             case .success(let model):
-                self.pokemons = model.pokemons
-                self.tableView.reloadData()
+                self.pokedexController.getPokemonImages(pokemons: model.pokemons)
             }
         }
+    }
+}
+
+extension PokedexViewController: PokedexControllerDelegate {
+    func gotPokemons(_ pokemons: [PokemonExpanded], artworks: [URL: UIImage]) {
+        pokemonsExpanded = pokemons
+        pokemonArtworks = artworks
+        tableView.reloadData()
+        loadingView.isHidden = true
     }
 }

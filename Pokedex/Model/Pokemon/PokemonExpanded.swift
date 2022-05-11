@@ -10,6 +10,7 @@ import Foundation
 struct PokemonExpanded: Codable {
     
     let sprites: PokemonSprite
+    let name: String
     
 }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="keD-ZL-0Mu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,25 +13,48 @@
             <objects>
                 <viewController title="Pokedex" id="BYZ-38-t0r" customClass="PokedexViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OOc-vT-tSf">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22g-BJ-Mbz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.hexagonpath.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-eY-jNv">
+                                        <rect key="frame" x="0.0" y="-2" width="414" height="900.5"/>
+                                        <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.097600226423815939" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tTF-eY-jNv" firstAttribute="top" secondItem="22g-BJ-Mbz" secondAttribute="top" id="IYd-YZ-RqF"/>
+                                    <constraint firstAttribute="bottom" secondItem="tTF-eY-jNv" secondAttribute="bottom" id="LtW-8U-fVf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tTF-eY-jNv" secondAttribute="trailing" id="cfZ-hp-AU2"/>
+                                    <constraint firstItem="tTF-eY-jNv" firstAttribute="leading" secondItem="22g-BJ-Mbz" secondAttribute="leading" id="gv6-TB-3O7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="22g-BJ-Mbz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2rT-zf-l2t"/>
                             <constraint firstItem="OOc-vT-tSf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Emx-Gb-7ol"/>
                             <constraint firstAttribute="bottom" secondItem="OOc-vT-tSf" secondAttribute="bottom" id="IfN-qf-S9U"/>
+                            <constraint firstAttribute="trailing" secondItem="22g-BJ-Mbz" secondAttribute="trailing" id="Pjn-dd-I4Z"/>
                             <constraint firstItem="OOc-vT-tSf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a6A-MJ-oT4"/>
                             <constraint firstItem="OOc-vT-tSf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cYN-xP-Yjq"/>
+                            <constraint firstItem="22g-BJ-Mbz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dGZ-gX-4ur"/>
+                            <constraint firstAttribute="bottom" secondItem="22g-BJ-Mbz" secondAttribute="bottom" id="zX2-2x-XrI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokedex" id="m0w-rO-UsK"/>
                     <connections>
+                        <outlet property="loadingImage" destination="tTF-eY-jNv" id="7J7-bb-vNw"/>
+                        <outlet property="loadingView" destination="22g-BJ-Mbz" id="1Sp-gQ-cFs"/>
                         <outlet property="tableView" destination="OOc-vT-tSf" id="raR-Wg-JZY"/>
                     </connections>
                 </viewController>
@@ -58,8 +82,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle.hexagonpath.fill" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

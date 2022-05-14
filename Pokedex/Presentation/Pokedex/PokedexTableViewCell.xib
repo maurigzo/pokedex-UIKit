@@ -23,25 +23,36 @@
                             <constraint firstAttribute="height" constant="80" id="HEO-Gf-RjS"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-eE-2W8">
-                        <rect key="frame" x="96" y="46" width="216" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-uw-rlL">
+                        <rect key="frame" x="96" y="31.5" width="41.5" height="49"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-eE-2W8">
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpN-6i-OS3" userLabel="Number Label">
+                                <rect key="frame" x="0.0" y="28.5" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wEJ-eE-2W8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4KG-Q8-cMI"/>
+                    <constraint firstItem="uqE-uw-rlL" firstAttribute="leading" secondItem="rfq-ga-j3m" secondAttribute="trailing" constant="8" id="2R4-6S-jch"/>
                     <constraint firstItem="rfq-ga-j3m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="B9H-eC-Fkp"/>
                     <constraint firstItem="rfq-ga-j3m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="SS3-Jb-0ia"/>
-                    <constraint firstAttribute="trailing" secondItem="wEJ-eE-2W8" secondAttribute="trailing" constant="8" id="Se8-HC-q4m"/>
-                    <constraint firstItem="wEJ-eE-2W8" firstAttribute="leading" secondItem="rfq-ga-j3m" secondAttribute="trailing" constant="8" id="TXc-2a-Tcv"/>
+                    <constraint firstItem="uqE-uw-rlL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mQc-nc-lUq"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rfq-ga-j3m" secondAttribute="bottom" constant="16" id="pe2-uf-jdr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nameLabel" destination="wEJ-eE-2W8" id="hDo-w3-R4M"/>
+                <outlet property="numberLabel" destination="tpN-6i-OS3" id="ghg-UR-Tip"/>
                 <outlet property="pokemonImageView" destination="rfq-ga-j3m" id="yf9-J7-yPM"/>
             </connections>
             <point key="canvasLocation" x="132" y="132"/>

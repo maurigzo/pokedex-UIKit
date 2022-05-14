@@ -40,7 +40,7 @@ extension PokedexViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "i") as? PokedexTableViewCell {
             let pokemon = pokemonsExpanded[indexPath.row]
             let imageURL = pokemon.sprites.otherSprites.officialArtwork.frontArtwork
-            cell.displayPokemon(name: pokemon.name, image: pokemonArtworks[imageURL])
+            cell.displayPokemon(name: pokemon.name, number: pokemon.number, image: pokemonArtworks[imageURL])
             return cell
         }
         return UITableViewCell()

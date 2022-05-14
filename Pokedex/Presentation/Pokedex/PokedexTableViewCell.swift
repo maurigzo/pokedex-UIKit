@@ -11,11 +11,13 @@ final class PokedexTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var pokemonImageView: UIImageView!
+    
     private var pokemonExpandedRequest: PokemonExpandedRequest?
     private var pokemonExpanded: PokemonExpanded?
     
-    func displayPokemon(name: String, image: UIImage?) {
+    func displayPokemon(name: String, number: Int, image: UIImage?) {
         nameLabel.text = name.capitalized
+        numberLabel.text = "#\(number)"
         pokemonImageView.image = image
     }
     

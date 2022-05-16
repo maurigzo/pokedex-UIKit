@@ -14,8 +14,7 @@ struct PokemonExpanded: Codable {
     let number: Int
     
     enum CodingKeys: String, CodingKey {
-        case sprites
-        case name
+        case sprites, name
         case number = "id"
     }
     

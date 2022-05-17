@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543115EB283315F700BDE490 /* PokedexCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543115EA283315F700BDE490 /* PokedexCellViewModel.swift */; };
 		543775CF2825CBE90029BF12 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543775CE2825CBE90029BF12 /* Pokemon.swift */; };
 		543775D22829B5930029BF12 /* PokedexResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 543775D12829B5930029BF12 /* PokedexResponse.json */; };
 		543775D42829B6030029BF12 /* PokedexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543775D32829B6030029BF12 /* PokedexModel.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		543115EA283315F700BDE490 /* PokedexCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexCellViewModel.swift; sourceTree = "<group>"; };
 		543775CE2825CBE90029BF12 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		543775D12829B5930029BF12 /* PokedexResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PokedexResponse.json; sourceTree = "<group>"; };
 		543775D32829B6030029BF12 /* PokedexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexModel.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				543775CE2825CBE90029BF12 /* Pokemon.swift */,
 				543775D32829B6030029BF12 /* PokedexModel.swift */,
 				543775D52829C88B0029BF12 /* PokemonExpanded.swift */,
+				543115EA283315F700BDE490 /* PokedexCellViewModel.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546E457F2829E1C100B2B6CF /* PokedexRequest.swift in Sources */,
+				543115EB283315F700BDE490 /* PokedexCellViewModel.swift in Sources */,
 				543775CF2825CBE90029BF12 /* Pokemon.swift in Sources */,
 				54E08E2C2825C70500463097 /* PokedexTableViewCell.swift in Sources */,
 				54E08DFD2825BEF500463097 /* PokedexViewController.swift in Sources */,

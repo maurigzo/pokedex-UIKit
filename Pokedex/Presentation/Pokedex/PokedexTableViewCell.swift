@@ -15,10 +15,10 @@ final class PokedexTableViewCell: UITableViewCell {
     private var pokemonExpandedRequest: PokemonExpandedRequest?
     private var pokemonExpanded: PokemonExpanded?
     
-    func displayPokemon(name: String, number: Int, image: UIImage?) {
-        nameLabel.text = name.capitalized
-        numberLabel.text = "#\(number)"
-        pokemonImageView.image = image
+    func displayPokemon(_ model: PokedexCellViewModel) {
+        nameLabel.text = model.name
+        numberLabel.text = model.numberText
+        pokemonImageView.image = model.image
     }
     
     override func prepareForReuse() {

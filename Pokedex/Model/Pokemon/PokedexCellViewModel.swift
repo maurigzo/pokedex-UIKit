@@ -18,4 +18,5 @@ extension PokedexCellViewModel {
     var numberText: String {
         "#\(number)"
     }
+
 }

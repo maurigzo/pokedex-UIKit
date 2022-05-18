@@ -12,14 +12,14 @@ build/
 #xcode state
 *.perspectivev3
 !default.perspectivev3
-*.xcworkspace
 !default.xcworkspace
-!contents.xcworkspacedata
 !Package.resolved
 xcuserdata
 profile
 *.moved-aside
 DerivedData
 .idea/
-# Breakpoints
-.Breakpoints_v2.xcbkptlist
+# xcshareddata
+.IDEWorkspaceChecks.plist
+
+

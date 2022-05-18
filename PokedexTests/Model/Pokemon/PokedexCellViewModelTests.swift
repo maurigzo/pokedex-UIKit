@@ -13,7 +13,7 @@ class PokedexCellViewModelTests: XCTestCase {
     
     func testPokedexCellNumberText() {
         // Given
-        let pokedexCellModel = PokedexCellViewModel(name: "Bauri", number: 5, image: nil)
+        let pokedexCellModel = PokedexCellViewModel(name: "Bauri", number: 5P, image: nil)
         let expectedResult = "#5"
 
         // When

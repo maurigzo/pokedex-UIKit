@@ -9,18 +9,6 @@ import XCTest
 @testable import Pokedex
 
 class PokedexTests: XCTestCase {
-    
-    func testPokedexCellNumberText() {
-        // Given
-        let pokedexCellModel = PokedexCellViewModel(name: "Bauri", number: 4, image: nil)
-        let expectedResult = "#5"
-
-        // When
-        let actualResult = pokedexCellModel.numberText
-
-        // Then
-        XCTAssertEqual(actualResult, expectedResult)
-    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -63,7 +63,7 @@ class PokemonFetcher {
     }
     
     private func sortPokemons(){
-        pokemonsExpanded = pokemonsExpanded.sorted {
+        pokemonsExpanded.sort {
             $0.number < $1.number
         }
     }

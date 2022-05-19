@@ -16,15 +16,17 @@ class PokemonFetcher {
     var pokemonsExpanded: [PokemonExpanded] = []
     var pokemonArtworks: [URL : UIImage] = [ : ]
     weak var delegate: PokedexControllerDelegate?
-
+    
     func getPokemonImages(pokemons: [Pokemon]) {
         let dispatchGroup = DispatchGroup()
+        
         pokemons.forEach({ pokemon in
             dispatchGroup.enter()
             self.loadPokemon(pokemon, onCompletion: {
                 dispatchGroup.leave()
             })
         })
+        
         dispatchGroup.notify(queue: .main, execute: {
             guard let delegate = self.delegate else {
                 fatalError("Can't continue without delegate")
@@ -33,8 +35,10 @@ class PokemonFetcher {
             delegate.gotPokemons(self.pokemonsExpanded, artworks: self.pokemonArtworks)
         })
     }
-    
-    private func loadPokemon(_ pokemon: Pokemon, onCompletion: @escaping (() -> Void)) {
+}
+
+private extension PokemonFetcher {
+    func loadPokemon(_ pokemon: Pokemon, onCompletion: @escaping (() -> Void)) {
         let pokemonExpandedRequest = PokemonExpandedRequest(url: pokemon.url)
         
         pokemonExpandedRequest.execute { result in
@@ -62,10 +66,9 @@ class PokemonFetcher {
         return nil
     }
     
-    private func sortPokemons(){
+    func sortPokemons() {
         pokemonsExpanded.sort {
             $0.number < $1.number
         }
     }
-    
 }

@@ -18,5 +18,8 @@ extension PokedexCellViewModel {
     var numberText: String {
         "#\(number)"
     }
+    var capitalizedName: String {
+        name.capitalized
+    }
 
 }

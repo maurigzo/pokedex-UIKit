@@ -12,7 +12,7 @@ final class PokedexViewController: UIViewController {
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var loadingImage: UIImageView!
     private let pokedexRequest = PokedexRequest()
-    private let pokedexController = PokedexController()
+    private let pokedexController = PokemonFetcher()
     
     var pokemonsExpanded: [PokemonExpanded] = []
     var pokemonArtworks: [URL: UIImage] = [:]

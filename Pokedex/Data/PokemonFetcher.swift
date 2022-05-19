@@ -12,7 +12,7 @@ protocol PokedexControllerDelegate: AnyObject {
     func gotPokemons(_ pokemons: [PokemonExpanded], artworks: [URL: UIImage])
 }
 
-class PokedexController {
+class PokemonFetcher {
     var pokemonsExpanded: [PokemonExpanded] = []
     var pokemonArtworks: [URL : UIImage] = [ : ]
     weak var delegate: PokedexControllerDelegate?
@@ -29,6 +29,7 @@ class PokedexController {
             guard let delegate = self.delegate else {
                 fatalError("Can't continue without delegate")
             }
+            self.sortPokemons()
             delegate.gotPokemons(self.pokemonsExpanded, artworks: self.pokemonArtworks)
         })
     }
@@ -59,6 +60,12 @@ class PokedexController {
             return UIImage(data: data)
         }
         return nil
+    }
+    
+    private func sortPokemons(){
+        pokemonsExpanded = pokemonsExpanded.sorted {
+            $0.number < $1.number
+        }
     }
     
 }

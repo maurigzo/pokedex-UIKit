@@ -16,7 +16,7 @@ final class PokedexTableViewCell: UITableViewCell {
     private var pokemonExpanded: PokemonExpanded?
     
     func displayPokemon(_ model: PokedexCellViewModel) {
-        nameLabel.text = model.name
+        nameLabel.text = model.capitalizedName
         numberLabel.text = model.numberText
         pokemonImageView.image = model.image
     }

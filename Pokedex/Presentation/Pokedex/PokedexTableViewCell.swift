@@ -11,6 +11,8 @@ final class PokedexTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var numberLabel: UILabel!
     @IBOutlet private weak var pokemonImageView: UIImageView!
+    @IBOutlet private weak var firstTypeLabel: UILabel!
+    @IBOutlet private weak var secondTypeLabel: UILabel!
     
     private var pokemonExpandedRequest: PokemonExpandedRequest?
     private var pokemonExpanded: PokemonExpanded?
@@ -19,6 +21,8 @@ final class PokedexTableViewCell: UITableViewCell {
         nameLabel.text = model.capitalizedName
         numberLabel.text = model.numberText
         pokemonImageView.image = model.image
+        firstTypeLabel.text = model.firstType
+        secondTypeLabel.text = model.secondType
     }
     
     override func prepareForReuse() {

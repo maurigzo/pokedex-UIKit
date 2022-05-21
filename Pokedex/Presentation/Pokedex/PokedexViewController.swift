@@ -44,7 +44,8 @@ extension PokedexViewController: UITableViewDataSource {
             let pokedexCellViewModel = PokedexCellViewModel(
                 name: pokemon.name,
                 number: pokemon.number,
-                image: pokemonArtworks[imageURL]
+                image: pokemonArtworks[imageURL],
+                types: pokemon.types
             )
             
             cell.displayPokemon(pokedexCellViewModel)

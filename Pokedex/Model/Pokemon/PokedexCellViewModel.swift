@@ -12,11 +12,25 @@ struct PokedexCellViewModel {
     let name: String
     let number: Int
     let image: UIImage?
+    let types: [PokemonType]
 }
 
 extension PokedexCellViewModel {
     var numberText: String {
         "#\(number)"
     }
-
+    var capitalizedName: String {
+        name.capitalized
+    }
+    
+    var firstType: String {
+        types[0].type.name.capitalized
+    }
+    
+    var secondType: String? {
+        if types.count < 2 {
+            return nil
+        }
+        return types[1].type.name.capitalized
+    }
 }
